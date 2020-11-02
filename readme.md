@@ -1,18 +1,18 @@
 # Calendar
 
 1. Events
-    - meeting
-    - task
-    - daily
-    - videoconference
-
-    - subject/name
-    - start day time
-    - duration
-    - location
-    - participants
-    - remainder
-    - owner
+ - meeting
+ - task
+ - daily
+ - videoconference
+---
+ - subject/name
+ - start day time
+ - duration
+ - location
+ - participants
+ - remainder
+ - owner
 
 2. Users
     - name
