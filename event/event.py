@@ -1,12 +1,12 @@
+# TODO add suitable getters and setters
 from datetime import datetime
-
 from helpers.helpers import uuid
 
 
 class Event:
     def __init__(self, name, start_time, duration, location, owner, participants):
         self.id = uuid()
-        self.name = name
+        self._name = name
         self.start_time = datetime.strptime(start_time, "%d/%m/%y %H:%M")
         self._duration = duration
         self.location = location
@@ -20,7 +20,7 @@ class Event:
 
     @duration.setter
     def duration(self, val):
-        if val >= 5:
+        if val <= 5:
             raise ValueError(f"Meeting duration under 5 minutes doesn't make sense ({val}).")
         self._duration = val
 
@@ -32,6 +32,14 @@ class Event:
         minutes, seconds = divmod(remainder, 60)
         return f'Time to event: {days} days, {hours} hours, {minutes} minutes.'
 
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def name(self, new_name):
+        self._name = new_name
+
     def __str__(self):
         return f'class Event(id: {self.id}, name: {self.name}, start time: {self.start_time}, ' \
-               f'created: {self.created}, time to event: {self.time_to_event})'
+               f'created: {self.created}, time to event: {self.time_to_event}, duration: {self._duration})'
