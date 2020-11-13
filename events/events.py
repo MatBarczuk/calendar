@@ -1,5 +1,4 @@
-# TODO add filter functionality
-
+from filtering import Filter
 from sorting import Sort
 
 
@@ -7,10 +6,13 @@ class Events:
     def __init__(self):
         self._events = []
         self.sort_config = []
+        self.filter_config = {}
 
     def add_event(self, event):
         self._events.append(event)
 
+    @Sort.sort
+    @Filter.filter
     def get_events(self):
         return self._events
 
@@ -31,9 +33,6 @@ class Events:
     def update_event(self, idx, config):
         event = self.get_event(idx)
         if event:
-            key = [*config][0]
-            setattr(event, key, config[key])
-
-    @Sort.sort
-    def sort_event(self):
-        return self._events
+            for updated in range(len(config)):
+                key = [*config][updated]
+                setattr(event, key, config[key])
