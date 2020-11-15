@@ -29,7 +29,7 @@ class Event:
         days = time.days
         hours, remainder = divmod(time.seconds, 3600)
         minutes, seconds = divmod(remainder, 60)
-        return f'Time to event: {days} days, {hours} hours, {minutes} minutes.'
+        return f'{days} days, {hours} hours, {minutes} minutes.'
 
     @property
     def name(self):
