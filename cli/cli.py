@@ -14,10 +14,15 @@ class Cli:
         return command(cmd)
 
     def get_user_command(self):
-        for idx, cmd in enumerate(self.get_commands()):  # TODO choose by number and names
+        command_dict = {}
+        for idx, cmd in enumerate(self.get_commands()):
+            command_dict[idx + 1] = cmd
             print(f'{idx + 1}. {cmd}')
 
         user_command = input('Choose command\n')
+        if user_command.isdigit():
+            if int(user_command) in command_dict.keys():
+                user_command = command_dict[int(user_command)]
         command = self.parse_command(user_command)
         command.execute()
 

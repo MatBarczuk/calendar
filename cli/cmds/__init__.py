@@ -4,3 +4,6 @@ from cli.cmds.no_command import NoCommand
 from cli.cmds.show_events import ShowEvents
 from cli.cmds.update_event import UpdateEvent
 from cli.cmds.delete_event import DeleteEvent
+from cli.cmds.sort_events import SortEvents
+from cli.cmds.filter_events import FilterEvents
+from cli.cmds.cancel_filter import CancelFilter
