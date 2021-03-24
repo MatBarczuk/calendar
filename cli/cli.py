@@ -29,5 +29,3 @@ class Cli:
     def run(self):
         while True:
             self.get_user_command()
-
-# TODO complete CLI
